@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Предметы</title>
+{% endblock %}
+{% block content %}
+<h1>Предметы</h1>
+<p>Вам доступны данные предметы</p>
+<div class="table-wrap">
+    <table class='table_list'>
+        <thead>
+            <tr>
+                <th class="table_head" onclick="sortTable(0)">Предмет <button class="sort">⇧⇩</button></th>
+                <th class="table_head" onclick="sortTable(1)">Категория <button class="sort">⇧⇩</button></th>
+                <th class="table_head">Задания </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in lessons %}
+              <tr>
+                  <td> {{ el.lesson }} </td>
+                  <td> {{ el.lesson_type }} </td>
+                  <td> <a href="/notify">🔍</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}   

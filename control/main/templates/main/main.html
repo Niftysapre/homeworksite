@@ -1,0 +1,145 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Расписание</title>
+{% endblock %}
+{% block content %}
+<h1>Расписание</h1>
+			<p class="day">Ваши уроки сегодня</p>
+      {% if weektoday < 6 %}
+      <ul class="main">
+        <li class="date">
+          <h3>{{ today }}</h3>
+
+          <p>{% for el in lessons %}
+            {% if el.id == weektoday %}
+              <p>{{ el.lessonday }}</p>        
+            {% endif %}
+            {% endfor %}</p>
+          </li>
+          
+        <li class= "events">
+          <ul class="events-detail">
+            <li>
+              
+              {% for el in lessons %}
+              {% if el.id == weektoday %}
+                  <a href="/checking">
+                    <span class="event-time">8:00</span>
+                    <span class="event-name">{{ el.lesson_1 }}</span>
+                    <span class="event-name">{{ el.group_1 }}</span> 
+                  </p>  
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == weektoday %}
+                <a href="/checking">
+                  <span class="event-time">10:00</span>
+                  <span class="event-name">{{ el.lesson_2 }}</span>
+                  <span class="event-name">{{ el.group_2 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == weektoday %}
+                <a href="/checking">
+                  <span class="event-time">12:00</span>
+                  <span class="event-name">{{ el.lesson_3 }}</span>
+                  <span class="event-name">{{ el.group_3 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == weektoday %}
+                <a href="/checking">
+                  <span class="event-time">14:00</span>
+                  <span class="event-name">{{ el.lesson_4 }}</span>
+                  <span class="event-name">{{ el.group_4 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+          </ul>  
+        </li>             
+      </ul>     
+      {% else %}
+      <p class="lessonplan">Уроков на завтра нет</p>
+      {% endif %} 
+      <p class="day">Ваши уроки Завтра</p> 
+      {% if nextweektoday < 6 %}
+      <ul class="main">
+        <li class="date">
+          <h3>{{ tomorrow }}</h3>
+
+          <p>{% for el in lessons %}
+            {% if el.id == nextweektoday %}
+              <p>{{ el.lessonday }}</p>        
+            {% endif %}
+            {% endfor %}</p>
+          </li>
+          
+        <li class= "events">
+          <ul class="events-detail">
+            <li>
+              {% for el in lessons %}
+              {% if el.id == nextweektoday %}
+                <a href="">
+                  <span class="event-time">8:00</span>
+                  <span class="event-name">{{ el.lesson_1 }}</span>
+                  <span class="event-name">{{ el.group_1 }}</span>
+                  
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == nextweektoday %}
+                <a href="">
+                <a href="#">
+                  <span class="event-time">10:00</span>
+                  <span class="event-name">{{ el.lesson_2 }}</span>
+                  <span class="event-name">{{ el.group_2 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == nextweektoday %}
+                <a href="">
+                  <span class="event-time">12:00</span>
+                  <span class="event-name">{{ el.lesson_3 }}</span>
+                  <span class="event-name">{{ el.group_3 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+            <li>
+              {% for el in lessons %}
+              {% if el.id == nextweektoday %}
+                <a href="">
+                  <span class="event-time">14:00</span>
+                  <span class="event-name">{{ el.lesson_4 }}</span>
+                  <span class="event-name">{{ el.group_4 }}</span>
+                </a>                
+              {% endif %}
+              {% endfor %}
+            </li>
+
+
+          </ul>  
+          
+        
+        </li>             
+      </ul> 
+      {% else %}
+      <p class="lessonplan">Уроков на завтра нет</p>
+      {% endif %} 
+      
+{% endblock %}    

@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+<title>Авторизация</title>
+{% endblock %}
+{% block content %}
+<div class="login-page">
+    <div class="form">
+      <form class="login-form" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Войти</button>
+        <p class="message">Еще не зарегистрированы? <a href="/users/register">Создайте аккаунт</a></p>
+      </form>
+    </div>
+  </div>
+{% endblock %}

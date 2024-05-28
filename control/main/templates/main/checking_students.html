@@ -1,0 +1,63 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Уведомления</title>
+{% endblock %}
+{% block content %}
+<h1 class="zag">Отметить посещение</h1>
+<form method="post" class="login-form register-form form marks">
+{% csrf_token %}
+{%for i in markss %}
+<p>{{i}}</p>
+{% endfor %}
+<button type="submit">Создать</button>
+</form>
+
+<!-- {% for i in checks.students %}
+    {% for el in students %}
+     {{ el.second_name }} -->
+    <!-- {{ i.second_name  }}
+    {% if el.second_name == i %}
+        <p class="filterDiv">{{ i }} {{ el }}</p>
+    {% endif %}
+{% endfor %}
+{%  endfor %}
+<div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    {% for i in groups %}
+    <button class="btn" onclick="filterSelection('{{ i.group }}')"> {{ i.group }} </button>
+    {% endfor %} -->
+<!-- </div> -->
+<!-- <input type="date" id="lessonday">
+<select id="listlesson" day="1">
+    {% for el in lessons %}
+        <option value="" >{{el.lesson}}</option>
+    {% endfor %}
+</select>
+<div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    {% for i in groups %}
+    <button class="btn" onclick="filterSelection('{{ i.group }}')"> {{ i.group }} </button>
+    {% endfor %}
+</div>
+{% for el in students %}  
+<input class="filterDiv {{ el.group }}" type="checkbox" id="{{ el.group }}{{ el.id }}">
+<label class="filterDiv {{ el.group }}" for="{{ el.group }}{{ el.id }}">{{ el.second_name }} {{ el.first_name }} {{ el.father_name }}</label>
+{% endfor %} -->
+<!-- <form method="post">
+    {% csrf_token %}
+    <select>
+        {% for i in lessones %}
+            <option value="">{{i.lesson}}</option>
+        {% endfor %}
+    </select>
+    <input type="date">
+    <ul class="container">
+    {% for el in header %}  
+        <input class="filterDiv {{ el.classname }}" type="checkbox" id="{{ el.classname }}{{ el.id }}">
+        <label class="filterDiv {{ el.classname }}" for="{{ el.classname }}{{ el.id }}">{{ el.familia }} {{ el.name }} {{ el.fathername }}</label>
+    {% endfor %}
+  </ul>
+  <button type="submit" class="savebutton">Сохранить</button> -->
+</form>
+
+{% endblock %}    

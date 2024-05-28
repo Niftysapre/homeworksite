@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Домашние задания</title>
+{% endblock %}
+{% block content %}
+<h1>Домашние задания на проверку</h1>
+
+{% for i in homework %}
+<div class="dz">
+    <p>{{i.student}}</p>
+    <form action="{% url 'download_file' file_id=i.id %}" method="get">
+        <button type="submit">Скачать файл</button>
+    </form>  
+</div>
+ 
+{% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    {%for i in markss %}
+    <p>{{i}}</p>
+    {% endfor %}
+    <button type="submit">Оценить</button>
+</form> 
+{% endblock %}    

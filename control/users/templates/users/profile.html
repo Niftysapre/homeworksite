@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Уведомления</title>
+{% endblock %}
+{% block content %}
+<h1>Ваш аккаунт</h1>
+
+<form method="post" class="register-form form">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Сохранить</button>
+</form> 
+{% endblock %}    

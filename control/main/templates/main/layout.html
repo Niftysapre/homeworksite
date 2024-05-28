@@ -1,0 +1,42 @@
+{% load static %}
+{% load main_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/style3.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style_table.css' %}">
+</head>
+<body>
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+	{% get_menu as menu %}
+		
+		<div class="sidebar">
+			<nav>
+				{% if user.is_authenticated %}
+				<div class="name_logout">
+					<a href="/users/profile/">{{ user.username }}</a>
+					<a href="/users/logout" class="loginnutton">Выйти</a>
+
+				</div>
+				<ul>
+					{% for m in menu %}
+						<li><a href="{% url m.url_name %}"> {{ m.title }}</a></li>
+					{% endfor %}
+				</ul>
+				{% else %}
+				<a href="/users/login" class="loginnutton nonreg">Регистрация/Войти</a>
+				{% endif %}
+			</nav>
+		</div>
+		<div class="main-content">
+		{% block content %}
+        {% endblock %}
+		</div>
+	</div>
+    <script src="{% static 'main/js/list.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% block title %}
+<title>Расписание</title>
+{% endblock %}
+{% block content %}
+<h1>Группы</h1>
+<p>Вам доступны данные группы учеников</p>
+
+<div class="table-wrap">
+    <table class='table_list'>
+        <thead>
+            <tr>
+            <th class="table_head" onclick="sortTableNum(0)">Номер <button class="sort">⇧⇩</button></th>
+            <th class="table_head" onclick="sortTable(1)">Тип <button class="sort">⇧⇩</button></th>
+            <th class="table_head">Список учащихся <button class="sort">⇧⇩</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in groups %}
+            <tr >
+                <td> {{ el.group_number }} </td>
+                <td> {{ el.group_type }} </td>
+                <td> <a href="/notify">🔍</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+</div>
+
+{% endblock %}
